@@ -1,0 +1,46 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <name>Loan__c</name>
+    <label>Loan</label>
+    <pluralLabel>Loans</pluralLabel>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <sharingModel>ReadWrite</sharingModel>
+    <nameField>
+        <label>Loan Name</label>
+        <type>Text</type>
+    </nameField>
+    <fields>
+        <fullName>Loan_Number__c</fullName>
+        <label>Loan Number</label>
+        <type>AutoNumber</type>
+        <required>true</required>
+    </fields>
+    <fields>
+        <fullName>Loan_Amount__c</fullName>
+        <label>Loan Amount</label>
+        <type>Currency</type>
+        <required>true</required>
+    </fields>
+    <fields>
+        <fullName>Loan_Status__c</fullName>
+        <label>Loan Status</label>
+        <type>Picklist</type>
+        <picklist>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending</fullName>
+                <default>true</default>
+            </picklistValues>
+        </picklist>
+        <required>true</required>
+    </fields>
+    <!-- Add more fields as needed -->
+</CustomObject>

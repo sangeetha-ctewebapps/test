@@ -1,0 +1,17 @@
+<userStory>
+  <title>Seamless System Integration for Credit Checks and Document Verification</title>
+  <role>System Administrator</role>
+  <description>
+    As a system administrator, I want the new loan processing system to seamlessly integrate with the bank's existing systems for credit checks and document verification, so that we can maintain consistency and efficiency in our operations.
+  </description>
+  <acceptanceCriteria>
+    <criteria>The system should be able to connect with the existing credit check system without any technical glitches.</criteria>
+    <criteria>The system should be able to retrieve and process data from the credit check system.</criteria>
+    <criteria>The system should be able to connect with the existing document verification system without any technical issues.</criteria>
+    <criteria>The system should be able to retrieve and process data from the document verification system.</criteria>
+    <criteria>The system should not disrupt the functioning of the existing systems during or after integration.</criteria>
+    <criteria>The system should maintain the security and confidentiality of the data during and after integration.</criteria>
+    <criteria>The system should be able to handle the data volume of the existing systems without any performance issues.</criteria>
+    <criteria>The system should be tested for successful integration with the existing systems before it is fully implemented.</criteria>
+  </acceptanceCriteria>
+</userStory>
