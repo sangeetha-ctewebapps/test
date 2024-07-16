@@ -1,64 +1,44 @@
-Here is an example of Python Flask API code that can be used to implement the given user story:
+Here is an example of a Python Flask API code that can be used to implement the Comprehensive Applicant Notification System:
 
 ```python
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-@app.route('/verify', methods=['POST'])
-def verify_documents():
-    # Get the submitted documents
-    documents = request.files.getlist('documents')
+@app.route('/submit_application', methods=['POST'])
+def submit_application():
+    # Process loan application submission
+    # Send notification to applicant
+    # Return success response
+    return jsonify({'message': 'Loan application submitted successfully'})
 
-    # Process each document
-    verification_results = []
-    for document in documents:
-        # Verify the authenticity of the document
-        authenticity_result = verify_authenticity(document)
+@app.route('/update_status', methods=['POST'])
+def update_status():
+    # Process application status update
+    # Send notification to applicant
+    # Return success response
+    return jsonify({'message': 'Application status updated'})
 
-        # Extract relevant information from the document
-        extracted_info = extract_information(document)
+@app.route('/send_loan_offer', methods=['POST'])
+def send_loan_offer():
+    # Process loan offer details
+    # Send notification to applicant
+    # Return success response
+    return jsonify({'message': 'Loan offer sent'})
 
-        # Check for any discrepancies or issues
-        issues = check_for_issues(extracted_info)
-
-        # Record the verification process for the document
-        verification_results.append({
-            'document_name': document.filename,
-            'authenticity_result': authenticity_result,
-            'extracted_info': extracted_info,
-            'issues': issues
-        })
-
-    # Generate a report summarizing the verification results
-    report = generate_report(verification_results)
-
-    return jsonify(report)
-
-def verify_authenticity(document):
-    # Implement the logic to verify the authenticity of the document
-    # Return the result (e.g., True for authentic, False for not authentic)
-    pass
-
-def extract_information(document):
-    # Implement the logic to extract relevant information from the document
-    # Return the extracted information
-    pass
-
-def check_for_issues(extracted_info):
-    # Implement the logic to check for any discrepancies or issues in the extracted information
-    # Return a list of issues (if any)
-    pass
-
-def generate_report(verification_results):
-    # Implement the logic to generate a report summarizing the verification results
-    # Return the report
-    pass
+@app.route('/disbursement_update', methods=['POST'])
+def disbursement_update():
+    # Process disbursement update
+    # Send notification to applicant
+    # Return success response
+    return jsonify({'message': 'Disbursement update sent'})
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 ```
 
-In this code, we define a Flask API with a single route `/verify` that accepts a POST request. The route expects a list of documents to be submitted as files. The code then processes each document, verifying its authenticity, extracting relevant information, and checking for any issues. The verification results for each document are recorded and a report summarizing the results is generated. Finally, the report is returned as a JSON response.
+This code defines four routes: `/submit_application`, `/update_status`, `/send_loan_offer`, and `/disbursement_update`. Each route corresponds to a specific action in the user story.
 
-Please note that the implementation of the `verify_authenticity`, `extract_information`, `check_for_issues`, and `generate_report` functions is left empty in the code. You will need to implement the logic for these functions based on your specific requirements and the tools/libraries you are using for document verification, information extraction, issue checking, and report generation.
+To implement the complete system, you would need to integrate this Flask API code with the loan application system, implement the logic for sending notifications via the preferred method of communication, and ensure compliance with data protection and privacy regulations. Additionally, you would need to implement the user interface for selecting the preferred notification method and handle the dependencies on external services such as email, SMS, or push notification providers.
+
+Please note that this is a basic example and you would need to customize and extend the code according to your specific requirements and the technologies you are using.
