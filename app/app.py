@@ -1,44 +1,50 @@
-Here is an example of a Python Flask API code that can be used to implement the Comprehensive Applicant Notification System:
+Here's an example of a Python Flask API code that can be used to implement the Comprehensive Applicant Notification System:
 
 ```python
-from flask import Flask, request, jsonify
+from flask import Flask, request
 
 app = Flask(__name__)
 
 @app.route('/submit_application', methods=['POST'])
 def submit_application():
-    # Process loan application submission
-    # Send notification to applicant
-    # Return success response
-    return jsonify({'message': 'Loan application submitted successfully'})
+    # Logic to submit the loan application
+    # Send notification to the applicant
+    send_notification('Your loan application has been submitted successfully.')
+    return 'Loan application submitted successfully.'
 
 @app.route('/update_status', methods=['POST'])
 def update_status():
-    # Process application status update
-    # Send notification to applicant
-    # Return success response
-    return jsonify({'message': 'Application status updated'})
+    status = request.json['status']
+    # Logic to update the application status
+    # Send notification to the applicant based on the updated status
+    if status == 'under_review':
+        send_notification('Your loan application is under review.')
+    elif status == 'approved':
+        send_notification('Congratulations! Your loan application has been approved.')
+        send_loan_offer_notification()
+    elif status == 'rejected':
+        send_notification('We regret to inform you that your loan application has been rejected.')
+    return 'Application status updated successfully.'
 
-@app.route('/send_loan_offer', methods=['POST'])
-def send_loan_offer():
-    # Process loan offer details
-    # Send notification to applicant
-    # Return success response
-    return jsonify({'message': 'Loan offer sent'})
+def send_loan_offer_notification():
+    # Logic to retrieve loan offer details
+    loan_offer = {
+        'loan_amount': 10000,
+        'interest_rate': 5,
+        'repayment_period': '12 months'
+    }
+    # Send notification to the applicant with loan offer details
+    send_notification(f'Congratulations! You have been offered a loan of {loan_offer["loan_amount"]} with an interest rate of {loan_offer["interest_rate"]}% for a repayment period of {loan_offer["repayment_period"]}.')
 
-@app.route('/disbursement_update', methods=['POST'])
-def disbursement_update():
-    # Process disbursement update
-    # Send notification to applicant
-    # Return success response
-    return jsonify({'message': 'Disbursement update sent'})
+def send_notification(message):
+    # Logic to send notification to the applicant via their preferred method of communication
+    # This can be implemented using external services or libraries for email, SMS, or push notifications
+    # Example code for sending email notification using Flask-Mail:
+    # mail.send_message(subject='Loan Application Notification', body=message, recipients=[applicant_email])
+    print(f'Sending notification: {message}')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
 ```
 
-This code defines four routes: `/submit_application`, `/update_status`, `/send_loan_offer`, and `/disbursement_update`. Each route corresponds to a specific action in the user story.
-
-To implement the complete system, you would need to integrate this Flask API code with the loan application system, implement the logic for sending notifications via the preferred method of communication, and ensure compliance with data protection and privacy regulations. Additionally, you would need to implement the user interface for selecting the preferred notification method and handle the dependencies on external services such as email, SMS, or push notification providers.
-
-Please note that this is a basic example and you would need to customize and extend the code according to your specific requirements and the technologies you are using.
+Please note that this is a simplified example and you may need to modify and expand the code to fit your specific requirements and integrate with external services for sending notifications via email, SMS, or push notifications. Additionally, you will need to set up the necessary dependencies and configurations for Flask-Mail or any other email service you choose to use.
