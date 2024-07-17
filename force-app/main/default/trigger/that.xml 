@@ -1,0 +1,15 @@
+<userStory>
+  <title>Multi-channel loan application process</title>
+  <description>
+    As a customer, I want to be able to apply for a car mortgage loan through multiple channels (in-person, website, mobile app) so that I can choose the most convenient method for me.
+  </description>
+  <acceptanceCriteria>
+    <criteria>The system should provide an option for customers to apply for a car mortgage loan in-person at a bank branch.</criteria>
+    <criteria>The system should provide an option for customers to apply for a car mortgage loan through the bank's website. The website should be user-friendly and secure.</criteria>
+    <criteria>The system should provide an option for customers to apply for a car mortgage loan via a mobile app. The app should be compatible with both iOS and Android devices.</criteria>
+    <criteria>The system should ensure that the application process is the same across all channels, providing a consistent user experience.</criteria>
+    <criteria>The system should provide clear instructions on the application process for each channel.</criteria>
+    <criteria>The system should allow customers to save their application progress and continue later, especially for online and mobile app channels.</criteria>
+    <criteria>The system should provide a confirmation message or notification once the application has been successfully submitted through any channel.</criteria>
+  </acceptanceCriteria>
+</userStory>
