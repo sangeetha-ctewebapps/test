@@ -1,0 +1,44 @@
+
+<trigger>
+  <name>LoanApplicationSubmitted</name>
+  <description>Triggered when a loan application is submitted successfully</description>
+  <conditions>
+    <condition>LoanApplication.Status = "Submitted"</condition>
+  </conditions>
+  <actions>
+    <action>SendNotification("LoanApplicationSubmitted", "Your loan application has been submitted successfully.", "email")</action>
+  </actions>
+</trigger>
+
+<trigger>
+  <name>ApplicationStatusChanged</name>
+  <description>Triggered when the application status changes</description>
+  <conditions>
+    <condition>LoanApplication.Status != Previous(LoanApplication.Status)</condition>
+  </conditions>
+  <actions>
+    <action>SendNotification("ApplicationStatusChanged", "Your loan application status has changed to {LoanApplication.Status}.", "email")</action>
+  </actions>
+</trigger>
+
+<trigger>
+  <name>LoanOfferGenerated</name>
+  <description>Triggered when a loan offer is generated</description>
+  <conditions>
+    <condition>LoanApplication.Status = "Approved"</condition>
+  </conditions>
+  <actions>
+    <action>SendNotification("LoanOfferGenerated", "Congratulations! You have received a loan offer. Loan amount: {LoanOffer.Amount}, Interest rate: {LoanOffer.InterestRate}, Repayment period: {LoanOffer.RepaymentPeriod}.", "email")</action>
+  </actions>
+</trigger>
+
+<trigger>
+  <name>LoanDisbursed</name>
+  <description>Triggered when the loan amount is disbursed</description>
+  <conditions>
+    <condition>LoanApplication.Status = "Disbursed"</condition>
+  </conditions>
+  <actions>
+    <action>SendNotification("LoanDisbursed", "Your loan amount has been disbursed. Disbursement details: {LoanDisbursement.Details}.", "email")</action>
+  </actions>
+</trigger>
